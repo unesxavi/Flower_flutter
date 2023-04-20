@@ -1,7 +1,6 @@
-# flower_flutter
+# Flower ecommerce
 
-A new Flutter project.
+## About
 
-## Getting Started
+Create flower ecommerce app with Flutter 3.
 
-This project is a starting point for a Flutter application.
