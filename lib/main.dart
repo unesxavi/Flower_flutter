@@ -1,6 +1,5 @@
-import 'package:flower_flutter/pages/register.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flower_flutter/pages/home.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -16,16 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const Register(),
+      home: const Home(),
     );
-  }
-}
-
-class Home extends StatelessWidget {
-  const Home({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold();
   }
 }
