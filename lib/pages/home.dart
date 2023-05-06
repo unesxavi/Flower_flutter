@@ -1,5 +1,8 @@
 import 'package:flower_flutter/constants/colors.dart';
 import 'package:flutter/material.dart';
+import '../components/drawer.dart';
+import '../components/home/appbar.dart';
+import '../components/home/listproducts.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -7,54 +10,17 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const FlDrawer(),
       appBar: AppBar(
         backgroundColor: appBarGreen,
-        actions: [
-          Row(
-            children: [
-              Stack(
-                children: [
-                  Positioned(
-                    bottom: 20,
-                    child: Container(
-                      padding: const EdgeInsets.all(5),
-                      decoration: const BoxDecoration(
-                        color: Color.fromARGB(211, 164, 255, 193),
-                        shape: BoxShape.circle,
-                      ),
-                      child: const Text(
-                        '8',
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: Color.fromARGB(255, 0, 0, 0),
-                        ),
-                      ),
-                    ),
-                  ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.add_shopping_cart,
-                    ),
-                  ),
-                ],
-              ),
-              const Padding(
-                padding: EdgeInsets.only(right: 11),
-                child: Text(
-                  "\$ 104",
-                  style: TextStyle(
-                    fontSize: 16,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ],
         title: const Text(
           "Home",
         ),
+        actions: const [
+          FlHAppBar(),
+        ],
       ),
+      body: const FlHProducts(),
     );
   }
 }
