@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../model/item.dart';
+import '../../pages/product.dart';
 
 class FlHProducts extends StatelessWidget {
   const FlHProducts({super.key});
@@ -18,7 +19,14 @@ class FlHProducts extends StatelessWidget {
         itemCount: items.length,
         itemBuilder: (BuildContext context, int index) {
           return GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Product(product: items[index]),
+                ),
+              );
+            },
             child: GridTile(
               footer: GridTileBar(
                 // backgroundColor: const Color.fromARGB(255, 62, 94, 70),
@@ -29,7 +37,7 @@ class FlHProducts extends StatelessWidget {
                     Icons.add,
                   ),
                 ),
-                leading:  Text("\$${items[index].price}"),
+                leading: Text("\$${items[index].price}"),
                 title: const Text(
                   "",
                 ),

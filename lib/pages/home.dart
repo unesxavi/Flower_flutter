@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../components/drawer.dart';
 import '../components/home/appbar.dart';
 import '../components/home/listproducts.dart';
+import '../constants/global_variables.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -14,7 +15,7 @@ class Home extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: appBarGreen,
         title: const Text(
-          "Home",
+          appName,
         ),
         actions: const [
           FlHAppBar(),
