@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-
-import '../components/drawer.dart';
 import '../components/product/appbar.dart';
 import '../constants/colors.dart';
 import '../constants/global_variables.dart';
@@ -20,11 +18,10 @@ class _ProductState extends State<Product> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const FlDrawer(),
       appBar: AppBar(
         backgroundColor: appBarGreen,
         title: const Text(
-          appName,
+          product,
           style: TextStyle(
             fontSize: 22,
             fontWeight: FontWeight.bold,

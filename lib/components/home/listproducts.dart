@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../../model/item.dart';
 import '../../pages/product.dart';
+import '../../provider/cart.dart';
 
 class FlHProducts extends StatelessWidget {
   const FlHProducts({super.key});
-
+  
   @override
   Widget build(BuildContext context) {
+
+    final myCart = Provider.of<Cart>(context);
+
     return Padding(
       padding: const EdgeInsets.only(top: 22),
       child: GridView.builder(
@@ -32,7 +37,9 @@ class FlHProducts extends StatelessWidget {
                 // backgroundColor: const Color.fromARGB(255, 62, 94, 70),
                 trailing: IconButton(
                   color: const Color.fromARGB(255, 62, 94, 70),
-                  onPressed: () {},
+                  onPressed: () {
+                    myCart.add(items[index]);
+                  },
                   icon: const Icon(
                     Icons.add,
                   ),

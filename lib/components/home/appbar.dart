@@ -1,10 +1,16 @@
+import 'package:flower_flutter/provider/cart.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../pages/checkout.dart';
 
 class FlHAppBar extends StatelessWidget {
   const FlHAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final myCart = Provider.of<Cart>(context);
+
     return Row(
       children: [
         Stack(
@@ -17,28 +23,35 @@ class FlHAppBar extends StatelessWidget {
                   color: Color.fromARGB(211, 164, 255, 193),
                   shape: BoxShape.circle,
                 ),
-                child: const Text(
-                  '8',
-                  style: TextStyle(
-                    fontSize: 16,
+                child: Text(
+                  "${myCart.itemCount}",
+                  style: const TextStyle(
+                    fontSize: 15,
                     color: Color.fromARGB(255, 0, 0, 0),
                   ),
                 ),
               ),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const Checkout(),
+                  ),
+                );
+              },
               icon: const Icon(
                 Icons.add_shopping_cart,
               ),
             ),
           ],
         ),
-        const Padding(
-          padding: EdgeInsets.only(right: 11),
+        Padding(
+          padding: const EdgeInsets.only(right: 11),
           child: Text(
-            "\$104",
-            style: TextStyle(
+            "\$${myCart.price}",
+            style: const TextStyle(
               fontSize: 16,
             ),
           ),
